@@ -1,9 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body></body>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css" />
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="mainContainer">
+		<div class="formContainer">
+			<form action="" id="form">
+				<div>
+					<label for="day">DAY </label> <input id="day" type="text" />
+				</div>
+				<div>
+					<label for="month">MONTH</label> <input id="month" type="text" />
+				</div>
+				<div>
+					<label for="year">YEAR</label> <input id="year" type="text" />
+				</div>
+			</form>
+		</div>
+
+		<!-- line and arrow section -->
+		<div class="lineContainer">
+			<div class="line"></div>
+			<button type="submit">
+				<svg xmlns="http://www.w3.org/2000/svg" width="36" height="33" viewBox="0 0 46 44">
+					<g fill="none" stroke="#FFF" stroke-width="2">
+						<path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
+					</g>
+				</svg>
+			</button>
+		</div>
+
+		<!-- counter section -->
+
+		<div class="counterContainer">
+			<div class="yearcounterContainer">
+				<span class="yearcounter">- -</span>year
+			</div>
+			<div class="MonthcounterContainer">
+				<span class="Monthcounter">- -</span>Months
+				<div class="daycounterContainer">
+					<span class="daycounter">- -</span>Days
+				</div>
+
+			</div>
+		</div>
+</body>
+
 </html>

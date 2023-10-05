@@ -1,0 +1,65 @@
+body {
+	background-color: hsl(0, 0%, 94%);
+	font-family: "Poppins", sans-serif;
+}
+.mainContainer {
+	max-width: min(90%, 30rem);
+	background-color: white;
+	margin: 0 auto;
+	padding: 1.5rem;
+	margin-top: 15vh;
+	border-bottom-right-radius: 60px;
+}
+.formContainer {
+	width: fit-content;
+}
+form {
+	display: flex;
+}
+form div {
+	margin-right: 1rem;
+}
+label {
+	display: block;
+	font-size: 0.5rem;
+	color: hsl(0, 1%, 44%);
+	letter-spacing: 2px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+input {
+	width: 3.5rem;
+	height: 1.5rem;
+	font-weight: 700;
+	padding-left: 0.5rem;
+}
+.lineContainer {
+	display: flex;
+}
+.line {
+	height: 1px;
+	width: 80%;
+	background-color: hsl(0, 0%, 86%);
+	align-self: center;
+}
+button {
+	width: 3rem;
+	height: 3rem;
+
+	border-radius: 50%;
+	border: none;
+	background-color: hsl(259, 100%, 65%);
+}
+button:hover {
+	background-color: hsl(0, 0%, 8%);
+}
+.counterContainer {
+	font-size: 3rem;
+	font-weight: 800;
+	font-style: italic;
+}
+.counterContainer span {
+	color: hsl(259, 100%, 65%);
+	font-style: normal;
+}
