@@ -11,10 +11,10 @@ body {
 	border-bottom-right-radius: 60px;
 }
 .formContainer {
-	width: fit-content;
-}
-form {
 	display: flex;
+}
+form:focus-within button {
+	background-color: hsl(0, 0%, 8%);
 }
 form div {
 	margin-right: 1rem;
@@ -26,6 +26,7 @@ label {
 	letter-spacing: 2px;
 	margin-left: 5px;
 	margin-bottom: 5px;
+	width: fit-content;
 }
 
 input {
@@ -33,6 +34,15 @@ input {
 	height: 1.5rem;
 	font-weight: 700;
 	padding-left: 0.5rem;
+}
+.dayError,
+.monthError,
+.yearError {
+	color: hsl(0, 100%, 67%);
+	font-size: 0.5rem;
+	font-weight: 400;
+	width: 3.5rem;
+	margin: 0;
 }
 .lineContainer {
 	display: flex;
