@@ -1,22 +1,43 @@
 const form = document.querySelector("#form");
-const day = Number(document.querySelector("#day").value);
-const month = Number(document.querySelector("#month").value);
-const year = Number(document.querySelector("#year").value);
+const dayInput = document.querySelector("#day");
+const monthInput = document.querySelector("#month");
+const yearInput = document.querySelector("#year");
 const dayError = document.querySelector(".dayError");
 const monthError = document.querySelector(".monthError");
 const yearError = document.querySelector(".yearError");
+const dayCounter = document.querySelector(".daycounter");
+const monthCounter = document.querySelector(".monthcounter");
+const yearCounter = document.querySelector(".yearcounter");
 let date = new Date();
-
 form.addEventListener("submit", (e) => {
-	e.preventDefault();
-	if (correctNumber()) {
-		console.log(1);
+	day = Number(dayInput.value);
+	month = Number(monthInput.value);
+	year = Number(yearInput.value);
+	correctNumber(day, month, year);
+	if (correctNumber(day, month, year)) {
+		let currnetDay = date.getDate();
+		let currentMonth = date.getMonth() + 1;
+		let currentYear = date.getFullYear();
+		if (currnetDay < day) {
+			currnetDay = currnetDay + 30;
+			currentMonth = currentMonth - 1;
+		}
+		if (currentMonth < month) {
+			currentMonth = currentMonth + 12;
+			currentYear = currentYear - 1;
+		}
+		console.log(currnetDay - day);
+		counterAnimation(currnetDay - day, dayCounter);
+		counterAnimation(currentMonth - month, monthCounter);
+		counterAnimation(currentYear - year, yearCounter);
+		// 	dayCounter.innerText = currnetDay - day;
+		// 	monthCounter.innerText = currentMonth - month;
+		// 	yearCounter.innerText = currentYear - year;
 	}
+	e.preventDefault();
 });
 
-console.log(correctNumber());
-
-function correctNumber() {
+function correctNumber(day, month, year) {
 	if (
 		numberRange(day, dayError, 31, 1) &&
 		numberRange(month, monthError, 12, 1) &&
@@ -62,23 +83,33 @@ function valDate(date) {
 		if (month == 1 || month > 2) {
 			if (day > ListofDays[month - 1]) {
 				//to check if the date is out of range
-				console.log("1");
+
 				return false;
 			}
 		} else if (month == 2) {
 			let leapYear = false;
 			if ((!(year % 4) && year % 100) || !(year % 400)) leapYear = true;
 			if (leapYear == false && day >= 29) {
-				monthError.innerText = "Invalid Date ";
 				return false;
 			} else if (leapYear == true && day > 29) {
-				dayError.innerText = "Invalid Date";
 				return false;
 			}
 		}
 	} else {
-		dayError.innerText = "Invalid Date";
 		return false;
 	}
 	return true;
+}
+
+function counterAnimation(number, error) {
+	let counter = 0;
+	const counterInterval = setInterval(count, 100);
+	function count() {
+		error.innerText = `${counter++}`;
+		if (counter > number) {
+			console.log("1");
+			clearInterval(counterInterval);
+			return true;
+		}
+	}
 }
